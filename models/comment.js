@@ -38,5 +38,5 @@ module.exports = (sequelize, DataTypes) => {
         Comment.belongsTo(models.Photo, { foreignKey: 'photo_id', as: 'photo' });
     };
 
-    return Photo;
+    return Comment;
 }

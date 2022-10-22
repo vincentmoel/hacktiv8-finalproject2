@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false
     },
-    username: {
+    full_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -14,7 +14,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    profile_image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    phone_number: {
       type: DataTypes.STRING,
       allowNull: false,
     },

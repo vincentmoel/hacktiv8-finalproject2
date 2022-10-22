@@ -1,0 +1,2 @@
+1. Jangan lupa ganti config.json jadi config.js
+2. Buka index.js di models, lalu isinya ganti dari config.json ke config.js
