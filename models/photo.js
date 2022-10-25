@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         caption: DataTypes.STRING,
-        image_url: {
+        poster_image_url: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        user_id: {
+        userId: {
+            field: 'user_id',
             type: DataTypes.INTEGER,
             allowNull: false,
         },

@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const v = new Validator();
 
 const {
-    URL_SERVICE_USER,
     JWT_SECRET,
     JWT_SECRET_REFRESH_TOKEN,
     JWT_ACCESS_TOKEN_EXPIRED,

@@ -50,9 +50,9 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = function (models) {
-    User.hasMany(models.Photo, { as: 'photos' })
-    User.hasMany(models.Comment, { as: 'comments' })
-    User.hasMany(models.SocialMedia, { as: 'social_medias' })
+    User.hasMany(models.Photo, { foreignKey: 'user_id', as: 'photos' })
+    User.hasMany(models.Comment, { foreignKey: 'user_id', as: 'comments' })
+    User.hasMany(models.SocialMedia, { foreignKey: 'user_id', as: 'social_medias' })
   };
 
   return User;
