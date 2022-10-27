@@ -22,11 +22,11 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
@@ -39,7 +39,7 @@ module.exports = {
       references: {
         table: 'users',
         field: 'id'
-      }
+      },
     });
 
     await queryInterface.addConstraint('comments', {
@@ -49,7 +49,9 @@ module.exports = {
       references: {
         table: 'photos',
         field: 'id'
-      }
+      },
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
     });
   },
 

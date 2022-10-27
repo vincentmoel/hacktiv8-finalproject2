@@ -1,4 +1,4 @@
-const { Photo } = require('../../../models');
+const { Comment } = require('../../../models');
 const jwt = require('jsonwebtoken');
 const Validator = require('fastest-validator');
 const v = new Validator();
@@ -11,9 +11,8 @@ const {
 
 module.exports = async (req, res) => {
     const schema = {
-        title: 'string|empty:false',
-        caption: 'string|empty:false',
-        poster_image_url: 'string|empty:false',
+        photo_id: 'string|empty:false',
+        comment: 'string|empty:false',
     }
 
     const validate = v.validate(req.body, schema);
@@ -28,21 +27,16 @@ module.exports = async (req, res) => {
     const user = jwt.decode(req.headers.authorization, JWT_SECRET).data.id;
 
     
-    const photo = {
-        title: req.body.title,
-        caption: req.body.caption,
-        poster_image_url: req.body.poster_image_url,
+    const comment = {
+        comment: req.body.comment,
+        photo_id: req.body.photo_id,
         userId: user
     }
 
-    const createdPhoto = await Photo.create(photo);
+    const createdComment = await Comment.create(comment);
 
     return res.json({
-        id:createdPhoto.id,
-        poster_image_url:createdPhoto.poster_image_url,
-        title:createdPhoto.title,
-        caption:createdPhoto.caption,
-        userId:createdPhoto.userId,
+        comment: createdComment
         
     });
 

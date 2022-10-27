@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-        user_id: {
+        userId: {
+            field: 'user_id',
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -35,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Comment.associate = function (models) {
         Comment.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
-        Comment.belongsTo(models.Photo, { foreignKey: 'photo_id', as: 'photo' });
+        Comment.belongsTo(models.Photo, { foreignKey: 'photo_id', as: 'photo'});
     };
 
     return Comment;
